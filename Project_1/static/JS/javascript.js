@@ -30,19 +30,19 @@ function rpsGame(yourChoice){
     console.log(yourChoice.id);
     var humanChoice, botChoice;
     humanChoice = yourChoice.id;
-    console.log(humanChoice);
-    botChoice = numberToChoice(randToRpsInt);
-    console.log(botChoice);
+    console.log('Your Choice: ',humanChoice);
+    botChoice = numberToChoice(randToRpsInt());
+    console.log('Computer Choice:', botChoice);
     results = decideWinner(humanChoice, botChoice);
-   console.log(results);
-    // console.log(results);
+    console.log(results);
     
-    //message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
+    message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
+    console.log(message);
     //rpsFronteEnd(yourChoice.id, botChoice, message);
 }
 
 function randToRpsInt(){
-    return Math.floor(Math.random()*3);
+    return Math.floor(Math.random() * 3);
 }
 
 function numberToChoice(number){
@@ -60,4 +60,15 @@ function decideWinner(yourChoice, computerChoice){
     var computerScore = rpsDatabase[computerChoice][yourChoice];
 
     return [yourScore, computerScore];
+}
+
+function finalMessage(yourScore, computerScore){
+    if(yourScore === 0 ){
+        return {'message' : 'You Lost!', 'color' : 'red'};
+    }else if(yourScore === 0.5 ){
+        return {'message' : 'You Tied!', 'color' : 'yellow' };
+    }else{
+        return {'message' : 'You Won!', 'color' : 'green' };
+    }
+
 }
