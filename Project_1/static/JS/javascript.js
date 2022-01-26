@@ -31,6 +31,15 @@ function rpsGame(yourChoice){
     var humanChoice, botChoice;
     //humanChoice = yourChoice.id;
     //botChoice = ;
-    results = 
+    results = decideWinner(humanChoice, botChoice);
+    message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
+    rpsFronteEnd(yourChoice.id, botChoice, message);
+}
 
+function randToRpsInt(){
+    return Math.floor(Math.random() * 3);
+}
+
+function numberToChoice(number){
+    return ['rock', 'paper', 'scissors'][number];
 }
