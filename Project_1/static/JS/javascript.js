@@ -23,3 +23,14 @@ function generateCat(){
     image.src = "http://thecatapi.com/api/images/get?format=src&type=gif&size=small";
     div.appendChild(image);
 }
+
+//Challenge 3: Rock, Paper, Scissor
+
+function rpsGame(yourChoice){
+    console.log(yourChoice.id);
+    var humanChoice, botChoice;
+    //humanChoice = yourChoice.id;
+    //botChoice = ;
+    results = 
+
+}
