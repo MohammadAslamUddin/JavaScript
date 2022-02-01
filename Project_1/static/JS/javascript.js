@@ -29,12 +29,15 @@ function generateCat(){
 function rpsGame(yourChoice){
     console.log(yourChoice.id);
     var humanChoice, botChoice;
+    
     humanChoice = yourChoice.id;
     console.log('Your Choice: ',humanChoice);
+    
     botChoice = numberToChoice(randToRpsInt());
     console.log('Computer Choice:', botChoice);
+    
     results = decideWinner(humanChoice, botChoice);
-    console.log(results);
+    console.log("Results : " + results);
     
     message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
     console.log(message);
@@ -51,7 +54,7 @@ function numberToChoice(number){
 
 function decideWinner(yourChoice, computerChoice){
     var rpsDatabase = {
-        'rock': {'scissors': 1, 'rock' : 0.5, 'paper': 0},
+        'rock': {'scissors': 1, 'rock': 0.5, 'paper': 0},
         'paper': {'rock': 1, 'paper': 0.5, 'scissors':0},
         'scissors': {'paper': 1, 'scissors': 0.5, 'rock':0}
     };
@@ -63,11 +66,14 @@ function decideWinner(yourChoice, computerChoice){
 }
 
 function finalMessage(yourScore, computerScore){
+    
     if(yourScore === 0 ){
         return {'message' : 'You Lost!', 'color' : 'red'};
-    }else if(yourScore === 0.5 ){
+    }
+    else if(yourScore === 0.5 ){
         return {'message' : 'You Tied!', 'color' : 'yellow' };
-    }else{
+    }
+    else{
         return {'message' : 'You Won!', 'color' : 'green' };
     }
 
