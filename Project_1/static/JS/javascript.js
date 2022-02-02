@@ -26,26 +26,81 @@ function generateCat(){
 
 //Challenge 3: Rock, Paper, Scissors
 
+// function rpsGame(yourChoice){
+//     console.log(yourChoice.id);
+//     var humanChoice, botChoice;
+    
+//     humanChoice = yourChoice.id;
+//     console.log('Your Choice: ',humanChoice);
+    
+//     botChoice = numberToChoice(randToRpsInt());
+//     console.log('Computer Choice:', botChoice);
+    
+//     results = decideWinner(humanChoice, botChoice);
+//     console.log("Results : " + results);
+    
+//     message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
+//     console.log(message);
+//     //rpsFronteEnd(yourChoice.id, botChoice, message);
+// }
+
+// function randToRpsInt(){
+//     return Math.floor(Math.random() * 3);
+// }
+
+// function numberToChoice(number){
+//     return ['rock', 'paper', 'scissors'][number];
+// }
+
+// function decideWinner(yourChoice, computerChoice){
+//     var rpsDatabase = {
+//         'rock': {'scissors': 1, 'rock': 0.5, 'paper': 0},
+//         'paper': {'rock': 1, 'paper': 0.5, 'scissors':0},
+//         'scissors': {'paper': 1, 'scissors': 0.5, 'rock':0}
+//     };
+
+//     var yourScore = rpsDatabase[yourChoice][computerChoice];
+//     var computerScore = rpsDatabase[computerChoice][yourChoice];
+
+//     return [yourScore, computerScore];
+// }
+
+// function finalMessage(yourScore, computerScore){
+//     return {'message': yourScore + " - " + computerScore};
+//     // if(yourScore===0 ){
+//     //     return {'message':'You Lost!', 'color':'red'};
+//     // }
+//     // else if(yourScore===0.5){
+//     //     return {'message':'You Tied!', 'color':'yellow'};
+//     // }
+//     // else{
+//     //     return {'message':'You Won!', 'color':'green'};
+//     // }
+
+// }
+
+
 function rpsGame(yourChoice){
-    console.log(yourChoice.id);
+    console.log(yourChoice);
     var humanChoice, botChoice;
     
     humanChoice = yourChoice.id;
-    console.log('Your Choice: ',humanChoice);
+    console.log("Human choice: "+humanChoice);
     
-    botChoice = numberToChoice(randToRpsInt());
-    console.log('Computer Choice:', botChoice);
+    botChoice = numberToChoice(randomRpsInt());
+    console.log("Bot Choice" + botChoice);
     
     results = decideWinner(humanChoice, botChoice);
-    console.log("Results : " + results);
-    
-    message = finalMessage(results); // { 'message' : "You Won!", 'color' : "green"}
-    console.log(message);
-    //rpsFronteEnd(yourChoice.id, botChoice, message);
+    console.log(results);
+
+    // message = finalMessage(results);
+    //rpsFrontEnd(yourChoice.id, botChoice, message);
+
+
 }
 
-function randToRpsInt(){
-    return Math.floor(Math.random() * 3);
+function randomRpsInt(){
+    return Math.floor(Math.random()*3);
 }
 
 function numberToChoice(number){
@@ -54,27 +109,12 @@ function numberToChoice(number){
 
 function decideWinner(yourChoice, computerChoice){
     var rpsDatabase = {
-        'rock': {'scissors': 1, 'rock': 0.5, 'paper': 0},
+        'rock': {'scissors':1, 'rock':0.5, 'paper':0},
         'paper': {'rock': 1, 'paper': 0.5, 'scissors':0},
         'scissors': {'paper': 1, 'scissors': 0.5, 'rock':0}
-    };
-
+    }
     var yourScore = rpsDatabase[yourChoice][computerChoice];
     var computerScore = rpsDatabase[computerChoice][yourChoice];
 
     return [yourScore, computerScore];
-}
-
-function finalMessage(yourScore, computerScore){
-    
-    if(yourScore === 0 ){
-        return {'message' : 'You Lost!', 'color' : 'red'};
-    }
-    else if(yourScore === 0.5 ){
-        return {'message' : 'You Tied!', 'color' : 'yellow' };
-    }
-    else{
-        return {'message' : 'You Won!', 'color' : 'green' };
-    }
-
 }
